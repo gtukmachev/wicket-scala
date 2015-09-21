@@ -11,7 +11,7 @@ import org.junit.Test;
 public class TestHomePage
 {
 	private WicketTester tester;
-/*
+
 	@Before
 	public void setUp()
 	{
@@ -27,5 +27,4 @@ public class TestHomePage
 		//assert rendered page class
 		tester.assertRenderedPage(HomePage.class);
 	}
-	*/
 }
