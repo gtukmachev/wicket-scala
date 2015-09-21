@@ -24,8 +24,7 @@
 	<artifactId>wicket-scala</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-		<!-- TODO project name  -->
-	<name>quickstart</name>
+	<name>wicket-scala</name>
 	<description></description>
 	<!--
 		<organization>
@@ -48,6 +47,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- allowed values: R7, 1.0, 1.5, 2.0 or none -->
 		<wtp.version>none</wtp.version>
+		<scala.version>2.11.7</scala.version>
 	</properties>
 	<dependencies>
 		<!--  WICKET DEPENDENCIES -->
@@ -63,6 +63,33 @@
 			<version>${wicket.version}</version>
 		</dependency>
 		-->
+
+		<!-- Add scala language into the project-->
+		<dependency><!-- scala Language -->
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+		<!--
+                <dependency>&lt;!&ndash; scala test Test &ndash;&gt;
+                    <groupId>org.scala-tools.testing</groupId>
+                    <artifactId>specs_2.10</artifactId>
+                    <version>1.6.9</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.scalatest</groupId>
+                    <artifactId>scalatest</artifactId>
+                    <version>1.2</version>
+                    <scope>test</scope>
+                </dependency>
+                &lt;!&ndash; Akka !!!! &ndash;&gt;
+                <dependency>
+                    <groupId>com.typesafe.akka</groupId>
+                    <artifactId>akka-actor_2.10</artifactId>
+                    <version>2.2.1</version>
+                </dependency>
+        -->
 
 		<!-- LOGGING DEPENDENCIES - LOG4J -->
 		<dependency>
@@ -110,13 +137,17 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<!-- #####################################################################################################33 -->
+
 	<build>
 		<resources>
 			<resource>
 				<filtering>false</filtering>
 				<directory>src/main/resources</directory>
 			</resource>
-			<resource>
+
+			<resource> <!-- Java resources -->
 				<filtering>false</filtering>
 				<directory>src/main/java</directory>
 				<includes>
@@ -124,6 +155,16 @@
 				</includes>
 				<excludes>
 					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+			<resource> <!-- Scala resources -->
+				<filtering>false</filtering>
+				<directory>src/main/scala</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.scala</exclude>
 				</excludes>
 			</resource>
 		</resources>
@@ -140,6 +181,16 @@
 				</includes>
 				<excludes>
 					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+			<testResource>
+				<filtering>false</filtering>
+				<directory>src/test/scala</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.scala</exclude>
 				</excludes>
 			</testResource>
 		</testResources>
@@ -180,6 +231,31 @@
 					<wtpversion>${wtp.version}</wtpversion>
 				</configuration>
 			</plugin>
+
+			<!-- Enable scala for project-->
+			<plugin>
+				<artifactId>maven-scala-plugin</artifactId><version>2.15.2</version><groupId>org.scala-tools</groupId>
+				<configuration><scalaVersion>${scala.version}</scalaVersion></configuration>
+				<executions>
+					<execution>
+						<id>scala-compile</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>add-source</goal>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>scala-test-compile</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+
+			</plugin>
+
 		</plugins>
 	</build>
 
