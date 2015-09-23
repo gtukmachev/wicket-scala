@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" [
+        ]>
+
+<hibernate-mapping default-access="field">
+
+    <class name="org.tj.domain.Person">
+        <id name="id"> <generator class="sequence"><param name="sequence">person_id_sequence</param></generator> </id>
+        <property name="name"/>
+    </class>
+
+
+    <class name="org.tj.domain.Address">
+        <id name="id"> <generator class="sequence"><param name="sequence">address_id_sequence</param></generator> </id>
+        <property name="zipcode"/>
+        <property name="adr"/>
+        <many-to-one name="city"/>
+    </class>
+
+    <class name="org.tj.domain.City">
+        <id name="id"> <generator class="sequence"><param name="sequence">city_id_sequence</param></generator> </id>
+        <property name="code"/>
+        <property name="name"/>
+    </class>
+
+</hibernate-mapping>
