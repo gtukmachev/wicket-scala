@@ -3,6 +3,7 @@ package org.tj.app
 import org.apache.wicket.Page
 import org.apache.wicket.protocol.http.WebApplication
 import org.tj.app.pages.home.HomePage
+import org.tj.app.pages.persons.PersonsPage
 import org.tj.hibernate.Hib
 
 /**
@@ -19,6 +20,8 @@ class WicketApplication extends WebApplication {
 
     Hib.init("org/tj/domain/domain.hbm.xml")
 
+
+    mountPage("/persons", classOf[PersonsPage] )
 
   }
   
