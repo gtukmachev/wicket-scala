@@ -1,9 +1,9 @@
-package org.tj
+package org.tj.app
 
 import org.apache.wicket.Page
 import org.apache.wicket.protocol.http.WebApplication
+import org.tj.app.pages.home.HomePage
 import org.tj.hibernate.Hib
-import org.tj.pages.home.HomePage
 
 /**
  * Created by Judge on 21.09.2015.
