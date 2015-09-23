@@ -17,7 +17,6 @@
         <property name="connection.pool_size">5</property>
         <property name="org.hibernate.context.spi.CurrentSessionContext">thread</property>
         <property name="hibernate.current_session_context_class">thread</property>
-        <!--<property name="current_session_context_class">thread</property>-->
 
         <!-- Disable the second-level cache  -->
         <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>

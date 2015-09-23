@@ -49,10 +49,10 @@ class PersonsPage(parameters :PageParameters) extends BasePage(parameters) {
     }
   }
 
-  add( new PageableListView[Int](
+  val personsList = new PageableListView[Int](
     "personsList"
     , personsModel
-    , 10 )
+    , 3 )
   {
     override def populateItem(item: ListItem[Int]): Unit = {
       val person = Hib.get.get(classOf[Person], item.getModelObject)
@@ -60,7 +60,10 @@ class PersonsPage(parameters :PageParameters) extends BasePage(parameters) {
       item.add(new Label("pId", item.getModelObject))
       item.add(new Label("pName", person.name ))
     }
-  })
+  }
+  add(personsList)
+
+  //add(new PagingNavigator("personsPaging", personsList));
 
 
 
