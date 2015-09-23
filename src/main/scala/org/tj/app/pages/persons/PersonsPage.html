@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<wicket:extend>
+
+    <form wicket:id="searchForm" class="block">
+        <div>search: <input type="text" name="search" wicket:id="search" style="width:80%;"/><input type="submit"></div>
+    </form>
+
+    <div class="block">
+        results: <span wicket:id="searchLabel"/>
+    </div>
+
+    <div class="block">
+    <table>
+        <tr>
+            <td>id</td>
+            <td>Name</td>
+        </tr>
+        <tr wicket:id="personsList">
+            <td wicket:id="pId"></td>
+            <td wicket:id="pName"></td>
+        </tr>
+    </table>
+    </div>
+
+</wicket:extend>
+</html>
