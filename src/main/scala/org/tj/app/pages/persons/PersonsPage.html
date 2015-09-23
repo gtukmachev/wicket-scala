@@ -4,12 +4,12 @@
 <wicket:extend>
 
     <form wicket:id="searchForm" class="block">
-        <div>search: <input type="text" name="search" wicket:id="search" style="width:80%;"/><input type="submit"></div>
+        <div><label>Search: <input type="text" wicket:id="search" style="width:80%;"/></label><input type="submit" value="search"></div>
     </form>
 
-    <div class="block">
-        results: <span wicket:id="searchLabel"/>
-    </div>
+    <form method="post" class="block" wicket:id="addForm">
+        <div><label>Name: <input wicket:id="pName" type="text" style="width:80%;"/></label><input type="submit" value="add person"></div>
+    </form>
 
     <div class="block">
     <table>

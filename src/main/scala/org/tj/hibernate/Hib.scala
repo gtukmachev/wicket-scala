@@ -45,14 +45,8 @@ object Hib  {
   }
 
   def get :Session = {
-
-    var session = sessionFactory.getCurrentSession
-
-    if (session == null) {
-      session = sessionFactory.openSession()
-      session.beginTransaction()
-    }
-
+    val session = sessionFactory.getCurrentSession
+    if (session.getTransaction.getStatus == TransactionStatus.NOT_ACTIVE) { session.beginTransaction() }
     session
   }
 
