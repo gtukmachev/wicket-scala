@@ -3,7 +3,7 @@ package org.tj;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;
-import org.tj.app.WicketApplication;
+import org.tj.app.WicketScalaApplication;
 import org.tj.app.pages.home.HomePage;
 
 
@@ -17,7 +17,7 @@ public class TestHomePage
 	@Before
 	public void setUp()
 	{
-		tester = new WicketTester(new WicketApplication());
+		tester = new WicketTester(new WicketScalaApplication());
 	}
 
 	@Test
