@@ -1,4 +1,4 @@
-package org.tj.app.pages.base
+package org.tj.wicket.pages.base
 
 import org.apache.wicket.markup.html.WebPage
 import org.apache.wicket.markup.html.basic.Label

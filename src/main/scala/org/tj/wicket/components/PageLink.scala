@@ -1,4 +1,4 @@
-package org.tj.app.components
+package org.tj.wicket.components
 
 import org.apache.wicket.Page
 import org.apache.wicket.markup.html.link.BookmarkablePageLink

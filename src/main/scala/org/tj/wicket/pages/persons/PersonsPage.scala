@@ -1,13 +1,13 @@
-package org.tj.app.pages.persons
+package org.tj.wicket.pages.persons
 
 import org.apache.wicket.markup.html.basic.Label
 import org.apache.wicket.markup.html.form.{Form, TextField}
 import org.apache.wicket.markup.html.list.{ListItem, PageableListView}
 import org.apache.wicket.model.{LoadableDetachableModel, Model}
 import org.apache.wicket.request.mapper.parameter.PageParameters
-import org.tj.app.pages.base.BasePage
 import org.tj.domain.Person
 import org.tj.hibernate.Hib
+import org.tj.wicket.pages.base.BasePage
 
 /**
  *

@@ -1,4 +1,4 @@
-package org.tj.app
+package org.tj.wicket
 
 import org.apache.wicket.request.cycle.{IRequestCycleListener, RequestCycle}
 import org.apache.wicket.request.{IRequestHandler, Url}

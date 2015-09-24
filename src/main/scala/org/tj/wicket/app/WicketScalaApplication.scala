@@ -1,11 +1,11 @@
-package org.tj.app
+package org.tj.wicket
 
 import org.apache.wicket.Page
 import org.apache.wicket.protocol.http.WebApplication
 import org.slf4j.LoggerFactory
-import org.tj.app.pages.home.HomePage
-import org.tj.app.pages.persons.PersonsPage
 import org.tj.hibernate.Hib
+import org.tj.wicket.pages.home.HomePage
+import org.tj.wicket.pages.persons.PersonsPage
 
 /**
 *   Created by Judge on 21.09.2015.
