@@ -7,13 +7,14 @@ import org.apache.wicket.model.{LoadableDetachableModel, Model}
 import org.apache.wicket.request.mapper.parameter.PageParameters
 import org.tj.domain.Person
 import org.tj.hibernate.Hib
-import org.tj.wicket.pages.base.BasePage
+import org.tj.wicket.pages.base.SignedInPage
 
 /**
  *
  * Created by Judge on 23.09.2015.
  */
-class PersonsPage(parameters :PageParameters) extends BasePage(parameters) {
+
+class PersonsPage(parameters :PageParameters) extends SignedInPage(parameters) {
 
   class SearchForm(id :String) extends Form[Nothing](id) {
     var textInput = new TextField[String]("search", Model.of(""))

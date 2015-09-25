@@ -1,7 +1,9 @@
-package org.tj.wicket
+package org.tj.wicket.app
 
 import org.apache.wicket.Page
-import org.apache.wicket.protocol.http.WebApplication
+import org.apache.wicket.authroles.authentication.pages.SignInPage
+import org.apache.wicket.authroles.authentication.{AbstractAuthenticatedWebSession, AuthenticatedWebApplication}
+import org.apache.wicket.markup.html.WebPage
 import org.slf4j.LoggerFactory
 import org.tj.hibernate.Hib
 import org.tj.wicket.pages.home.HomePage
@@ -14,7 +16,7 @@ object WicketScalaApplication {
   val logger = LoggerFactory.getLogger(classOf[WicketScalaApplication])
 }
 
-class WicketScalaApplication extends WebApplication {
+class WicketScalaApplication extends AuthenticatedWebApplication {
   import WicketScalaApplication._
 
   override def getHomePage: Class[_ <: Page] = classOf[HomePage]
@@ -42,5 +44,8 @@ class WicketScalaApplication extends WebApplication {
       "*********************************************************************\n\n")
 
   }
-  
+
+  override def getWebSessionClass: Class[_ <: AbstractAuthenticatedWebSession] = classOf[WicketScalaWebSession]
+
+  override def getSignInPageClass: Class[_ <: WebPage] = classOf[SignInPage]
 }

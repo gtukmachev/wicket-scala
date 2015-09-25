@@ -1,5 +1,6 @@
 package org.tj.wicket.pages.base
 
+import org.apache.wicket.Component
 import org.apache.wicket.markup.html.WebPage
 import org.apache.wicket.markup.html.basic.Label
 import org.apache.wicket.model.AbstractReadOnlyModel
@@ -15,15 +16,16 @@ class BasePage(parameters :PageParameters) extends WebPage(parameters) with Wick
     super.onInitialize()
 
     add(buildTitleComponent("title"))
-    add(buildCaptionComponent("caption"))
+    add(buildHeaderComponent("header"))
+    
 
     add(new Label("version", getApplication.getFrameworkSettings.getVersion))
   }
 
 
-  def buildTitleComponent(id :String) = new Label(id, buildTitleModel)
+  def buildTitleComponent(id :String) :Component = new Label(id, buildTitleModel)
 
-  def buildCaptionComponent(id :String) = buildTitleComponent(id)
+  def buildHeaderComponent(id :String) :Component = new BaseHeaderPanel(id)
 
   def buildTitleModel = new AbstractReadOnlyModel[String] {
       override def getObject: String = getString("title")

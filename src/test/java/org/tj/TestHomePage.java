@@ -3,7 +3,7 @@ package org.tj;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;
-import org.tj.wicket.WicketScalaApplication;
+import org.tj.wicket.app.WicketScalaApplication;
 import org.tj.wicket.pages.home.HomePage;
 
 

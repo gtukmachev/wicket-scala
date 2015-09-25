@@ -1,7 +1,6 @@
 package org.tj.wicket_scala
 
 import org.apache.wicket.markup.html.basic.Label
-import org.apache.wicket.markup.html.link.Link
 import org.apache.wicket.model.IModel
 import org.apache.wicket.{Component, MarkupContainer}
 
@@ -12,7 +11,7 @@ trait WicketDSL { self: MarkupContainer =>
 
   def += (child :Component) = { self.add(child);  child }
 
-  def link(id: String)(f: => Unit) = { self += new Link(id) { override def onClick() = f } }
+  def link(id: String) ( f: => Unit) :Link[Any] = { self.+=(Link(id)(f)).asInstanceOf[Link[Any]] }
 
   def label(id:String, model: IModel[_]) = { +=( new Label(id, model ) )}
 
